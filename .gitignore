@@ -1,0 +1,84 @@
+# -------------------------------------------------
+# Generic build artifacts
+# -------------------------------------------------
+*.o
+*.obj
+*.elf
+*.bin
+*.map
+*.out
+*.axf
+*.hex
+*.d
+*.su
+*.mod
+*.mod.c
+*.cmd
+
+# Kernel build artifacts
+*.order
+*.symvers
+modules.order
+Module.symvers
+Module.markers
+
+# -------------------------------------------------
+# Makefile intermediates
+# -------------------------------------------------
+*.a
+*.so
+*.la
+*.lo
+*.rej
+*.bak
+*.orig
+*.swp
+*.swo
+*~
+
+# -------------------------------------------------
+# Python
+# -------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.manifest
+*.spec
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+*.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# -------------------------------------------------
+# Logs & misc
+# -------------------------------------------------
+*.log
+*.tmp
+*.DS_Store
+*.idea/
+*.vscode/
+*.tags
+*.ctags
+*.gdb_history
+
+# -------------------------------------------------
+# Project-specific (you may customize)
+# -------------------------------------------------
+/build/
+/Debug/
+/Release/
+/output/
+/_generated/
+/tmp/
