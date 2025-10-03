@@ -10,23 +10,36 @@
  * 
  */
 
-#include <linux/init.h>
-#include <linux/module.h>
+#include <linux/init.h>      // Needed for module_init and module_exit macros
+#include <linux/module.h>    // Needed for all kernel modules
 
-MODULE_LICENSE("GPL"); //*
-MODULE_AUTHOR("Jose Figueroa");
-MODULE_DESCRIPTION("A simple example kernel module");
+MODULE_LICENSE("GPL"); // License type -- affects kernel behavior
+MODULE_AUTHOR("Jose Figueroa"); // Module author
+MODULE_DESCRIPTION("A simple example kernel module"); // Short description
 
+/**
+ * @brief Module initialization function.
+ * This function is called when the module is loaded into the kernel.
+ * It prints a hello message to the kernel log.
+ * 
+ * @return int Returns 0 on success. Non-zero means module can't be loaded.
+ */
 static int ldd_init(void)
 {
-    printk("Hello, World! from Jose\n");
-    return 0; // Non-zero return means that the module couldn't be loaded.
+    printk("Hello, World! from Jose\n"); // Print message to kernel log
+    return 0; // Return 0 for successful loading
 }
 
+/**
+ * @brief Module cleanup function.
+ * This function is called just before the module is removed from the kernel.
+ * It prints a goodbye message to the kernel log.
+ */
 static void ldd_exit(void)
 {
-    printk("Goodbye, World! from Jose\n");
+    printk("Goodbye, World! from Jose\n"); // Print message to kernel log
 }
 
-module_init(ldd_init);
-module_exit(ldd_exit);
+/* Macros to register module entry and exit points */
+module_init(ldd_init); // Register initialization function
+module_exit(ldd_exit); // Register cleanup function
