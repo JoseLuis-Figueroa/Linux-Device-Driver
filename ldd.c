@@ -33,8 +33,19 @@ static struct proc_dir_entry *custom_proc_node;
  */
 static ssize_t ldd_read(struct file *file_ptr, char *user_space_buffer, size_t count, loff_t *offset)
 {
+    // Example message to be sent to user space
+    char msg[] = "Ack!\n";
+    size_t msg_len = strlen(msg);
+    
     printk("ldd_read \n");
-    return 0;
+
+    if (*offset >= msg_len)
+        return 0; // End of file
+
+    int result = copy_to_user(user_space_buffer, msg, msg_len);
+    *offset += msg_len;
+
+    return msg_len; // Return the number of bytes read
 }
 
 struct proc_ops driver_proc_ops = 
