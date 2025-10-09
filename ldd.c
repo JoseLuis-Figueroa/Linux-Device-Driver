@@ -12,7 +12,7 @@
 
 #include <linux/init.h>     // Needed for module_init and module_exit macros
 #include <linux/module.h>   // Needed for all kernel modules
-#include <proc_fs.h>        // Needed for proc filesystem operations
+#include <linux/proc_fs.h>        // Needed for proc filesystem operations
 
 MODULE_LICENSE("GPL"); // License type -- affects kernel behavior
 MODULE_AUTHOR("Jose Figueroa"); // Module author
